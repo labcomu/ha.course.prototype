@@ -66,14 +66,22 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
-			
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-jar-plugin</artifactId>
-                    <configuration>
-                        <outputDirectory>${app.jar.output.dir}</outputDirectory>
-                    </configuration>
-                </plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+
+				<configuration>
+					<archive>
+						<manifest>
+							<addClasspath>true</addClasspath>
+							<classpathPrefix>libs/</classpathPrefix>
+							<mainClass>com.labcomu.ha.prototype.Application</mainClass>
+						</manifest>
+					</archive>
+					<outputDirectory>${app.jar.output.dir}</outputDirectory>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 
